@@ -1,4 +1,4 @@
-// Изменение bacground хедера
+// Изменение background хедера
 const containerHeader = document.querySelector('.header__container');
 let scrollDistance = null;
  
@@ -90,11 +90,25 @@ items.forEach((item, i) => {
 
 const burger = document.querySelector('.btn-burger');
 const nav = document.querySelector('.nav');
-const headerInner = document.querySelector('.header-inner')
+const headerInner = document.querySelector('.header-inner');
+const menuLinks = document.querySelectorAll('.menu__link');
 
 const lineBurger1 = document.querySelector(".header-line-1");
 const lineBurger2 = document.querySelector(".header-line-2");
 const lineBurger3 = document.querySelector(".header-line-3");
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+		nav.classList.remove('nav-active');
+		nav.classList.add('nav-unactive');
+		headerInner.classList.remove('header-inner-active');
+		headerInner.classList.add('header-inner-unactive');
+
+		lineBurger1.classList.remove("header-line-1-active");
+		lineBurger2.classList.remove("header-line-2-active");
+		lineBurger3.classList.remove("header-line-3-active");
+  });
+});
 
 burger.addEventListener('click', ()=>{
 	if(nav.classList.contains('nav-active')){
